@@ -1,0 +1,21 @@
+header {
+    background-color: #020203;
+    height: 91px;
+    display: flex;
+    align-items: center;
+}
+
+#logo {
+    text-align: center;
+    margin-left: 30px;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex: 1;
+    font-family: Roboto;
+    font-size: 24px;
+    color: #FFFFFF;
+}
