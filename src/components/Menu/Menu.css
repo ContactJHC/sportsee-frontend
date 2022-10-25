@@ -1,0 +1,25 @@
+#lateralMenu {
+    height: calc(100vh - 91px);
+    background-color: #020203;
+    width: 117px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+#lateralIcons img {
+    display: block;
+    margin-bottom: 20px;
+    
+}
+
+#lateralCopyright {
+    font-family: Roboto;
+    color: #FFFFFF;
+    font-size: 12px;
+    position: absolute;
+    writing-mode: sideways-lr;
+    bottom: 59px;
+}
