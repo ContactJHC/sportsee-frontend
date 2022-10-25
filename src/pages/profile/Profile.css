@@ -1,9 +1,31 @@
-#bannerContainer {
+p {
+    margin: 0;
+}
+
+#mainContainer {
     position: absolute;
     left: 217px ;
     top: 159px;
+    width: 80%;
   }
 
-p {
-    margin: 0;
+#chartsAndSummariesContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 77px;
+}
+
+#chartsContainer {
+    height: 40vh;
+    width: 74%;
+    background-color: brown;
+}
+
+/* 835+31=866+258=924 total 1126 donc 1126-31=1095 et ratios 835/1126   31/1126   258/1126*/
+
+#summariesContainer {
+    height: 40vh;
+    width: 22%;
+    background-color: blueviolet;
+
 }
