@@ -1,0 +1,13 @@
+#greeting {
+    font-size: 48px;
+    font-weight: bold;
+}
+
+#userName {
+    color: #FF0101;
+}
+
+#motivationalText {
+    margin-top: 41px;
+    font-size: 18px;
+}

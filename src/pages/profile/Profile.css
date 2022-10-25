@@ -1,0 +1,9 @@
+#bannerContainer {
+    position: absolute;
+    left: 217px ;
+    top: 159px;
+  }
+
+p {
+    margin: 0;
+}
