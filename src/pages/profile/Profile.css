@@ -22,8 +22,6 @@ p {
     background-color: brown;
 }
 
-/* 835+31=866+258=924 total 1126 donc 1126-31=1095 et ratios 835/1126   31/1126   258/1126*/
-
 #summariesContainer {
     width: 258px;
     background-color: blueviolet;
@@ -33,18 +31,13 @@ p {
 }
 
 #dailyActivityContainer{
-    width: 90%;
-    margin: auto;
     height: 260px;
     margin-bottom: 30px;
-    margin-top: 30px;
     background-color: aqua;
 }
 
 #averageAndIntensityAndScoreContainer{
     background-color: red;
-    width: 90%;
-    margin: auto;
     height: 260px;
     display: flex;
     gap: 30px;
