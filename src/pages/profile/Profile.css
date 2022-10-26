@@ -16,7 +16,7 @@ p {
 }
 
 #chartsContainer {
-    height: 40vh;
+    height: fit-content;
     width: 74%;
     background-color: brown;
 }
@@ -24,8 +24,39 @@ p {
 /* 835+31=866+258=924 total 1126 donc 1126-31=1095 et ratios 835/1126   31/1126   258/1126*/
 
 #summariesContainer {
-    height: 40vh;
     width: 22%;
     background-color: blueviolet;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
+#dailyActivityContainer{
+    width: 90%;
+    margin: auto;
+    height: 260px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    background-color: aqua;
+}
+
+#averageAndIntensityAndScoreContainer{
+    background-color: red;
+    width: 90%;
+    margin: auto;
+    height: 260px;
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+
+}
+
+#averageChart, #intensityChart, #scoreChart{
+    width: 260px;
+    background-color: blueviolet;
+}
+
+#caloriesSummary, #proteinsSummary, #carbsSummary, #lipidsSummary {
+    background-color: brown;
+    height: 124px;
 }
