@@ -17,14 +17,15 @@ p {
 
 #chartsContainer {
     height: fit-content;
-    width: 74%;
+    margin-right: 31px;
+    flex: 1;
     background-color: brown;
 }
 
 /* 835+31=866+258=924 total 1126 donc 1126-31=1095 et ratios 835/1126   31/1126   258/1126*/
 
 #summariesContainer {
-    width: 22%;
+    width: 258px;
     background-color: blueviolet;
     display: flex;
     flex-direction: column;
