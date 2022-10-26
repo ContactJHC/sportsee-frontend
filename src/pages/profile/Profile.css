@@ -56,7 +56,31 @@ p {
     background-color: blueviolet;
 }
 
-#caloriesSummary, #proteinsSummary, #carbsSummary, #lipidsSummary {
-    background-color: brown;
+#caloriesContainer, #proteinsContainer, #carbsContainer, #lipidsContainer {
+    background-color: #FBFBFB;
     height: 124px;
 }
+
+#caloriesContainer, #caloriesSummary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconImages {
+    height: 60px;
+    margin-right: 24px;
+}
+
+.caloriesNumber {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.caloriesName {
+    margin-top: 4px;
+    color: #74798C;
+    font-size: 12px;
+    font-weight: lighter;
+}
+

@@ -1,5 +1,10 @@
 import './Profile.css'
 import Banner from '../../components/banner/Banner'
+// below are required imports for summariescontainers Components
+import caloriesIcon from '../../assets/calories-icon.png'
+import carbsIcon from '../../assets/carbs-icon.png'
+import proteinsIcon from '../../assets/protein-icon.png'
+import lipidsIcon from '../../assets/fat-icon.png'
 
 export default function Profile() {
   return (
@@ -19,10 +24,20 @@ export default function Profile() {
               </div>
             </div>
             <div id='summariesContainer'>
-              <div id='caloriesSummary'></div>
-              <div id='proteinsSummary'></div>
-              <div id='carbsSummary'></div>
-              <div id='lipidsSummary'></div>
+              <div id='caloriesContainer'>
+                <div id='caloriesSummary'>
+                  <div id='caloriesIcon'>
+                    <img className='iconImages' src={caloriesIcon} alt='calories' />
+                  </div>
+                  <div className='caloriesText'>
+                    <div className='caloriesNumber'>1.930kCal</div>
+                    <div className='caloriesName'>Calories</div>
+                  </div>
+                </div>
+              </div>
+              <div id='proteinsContainer'></div>
+              <div id='carbsContainer'></div>
+              <div id='lipidsContainer'></div>
             </div>
         </div>
     </div>
