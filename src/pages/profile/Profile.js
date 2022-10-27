@@ -1,12 +1,15 @@
 import './Profile.css'
-import Banner from '../../components/banner/Banner'
+import Banner from '../../components/Banner/Banner'
 // below are required imports for summariescontainers Components
-import caloriesIcon from '../../assets/calories-icon.png'
-import carbsIcon from '../../assets/carbs-icon.png'
-import proteinsIcon from '../../assets/protein-icon.png'
-import lipidsIcon from '../../assets/fat-icon.png'
+import iconCalories from '../../assets/calories-icon.png'
+import Summary from '../../components/Summary/Summary'
+import iconCarbs from '../../assets/carbs-icon.png'
+import iconProteins from '../../assets/protein-icon.png'
+import iconLipids from '../../assets/fat-icon.png'
 
 export default function Profile() {
+  
+  
   return (
     <div id='mainContainer'>
         <div id='bannerContainer'>
@@ -24,20 +27,15 @@ export default function Profile() {
               </div>
             </div>
             <div id='summariesContainer'>
-              <div id='caloriesContainer'>
-                <div id='caloriesSummary'>
-                  <div id='caloriesIcon'>
-                    <img className='iconImages' src={caloriesIcon} alt='calories' />
-                  </div>
-                  <div className='caloriesText'>
-                    <div className='caloriesNumber'>1.930kCal</div>
-                    <div className='caloriesName'>Calories</div>
-                  </div>
-                </div>
-              </div>
-              <div id='proteinsContainer'></div>
-              <div id='carbsContainer'></div>
-              <div id='lipidsContainer'></div>
+              
+
+              
+
+              <Summary name='Calories' number='1,930kCal' icon={iconCalories}/>
+              <Summary name='Protéines' number='155g' icon={iconProteins}/>
+              <Summary name='Glucides' number='290g' icon={iconCarbs}/>
+              <Summary name='Lipides' number='50g' icon={iconLipids}/>
+              
             </div>
         </div>
     </div>

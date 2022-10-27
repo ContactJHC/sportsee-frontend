@@ -1,0 +1,31 @@
+
+.categoryContainer {
+    background-color: #FBFBFB;
+    height: 124px;
+}
+
+.categoryContainer, .categorySummary {
+    display: flex;
+    align-items: center;
+}
+
+.categorySummary {
+    margin-left: 30px;
+}
+
+.iconImages {
+    height: 60px;
+    margin-right: 24px;
+}
+
+.categoryNumber {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.categoryName {
+    margin-top: 4px;
+    color: #74798C;
+    font-size: 12px;
+    font-weight: lighter;
+}
