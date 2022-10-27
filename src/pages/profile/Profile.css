@@ -36,8 +36,8 @@ p {
     background-color: aqua;
 }
 
-#averageAndIntensityAndScoreContainer{
-    background-color: red;
+#averageAndRadarAndScoreContainer{
+    background-color: yellowgreen;
     height: 260px;
     display: flex;
     gap: 30px;
@@ -45,9 +45,11 @@ p {
 
 }
 
-#averageChart, #intensityChart, #scoreChart{
+#averageChart, #scoreChart{
     width: 260px;
     background-color: blueviolet;
 }
 
-
+#radarChart {
+    background-color: #282D30;
+}
