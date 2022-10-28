@@ -45,8 +45,11 @@ p {
 
 }
 
-#averageChart, #scoreChart{
+#averageChart, #scoreChart, #radarChart{
     width: 260px;
+}
+
+#averageChart, #scoreChart{
     background-color: blueviolet;
 }
 

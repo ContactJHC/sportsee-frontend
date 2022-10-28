@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Label } from 'recharts';
 
 const data = [
     {
@@ -54,13 +54,15 @@ export default function ChartDailyActivity() {
             bottom: 5,
           }}
         >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="day" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="kilogram" fill="#020203" />
-          <Bar dataKey="calories" fill="#FF0101" />
+          <CartesianGrid strokeDasharray="3 3" vertical={false} />
+          <XAxis dataKey="day"  />
+          <YAxis dataKey="calories" orientation='right'/>
+          <Tooltip contentStyle={{backgroundColor:'#E60000',color:'white'}}
+          itemStyle={{color:'white', fontFamily:'Roboto'}}/>
+          <Legend iconType='circle' width={400} align='right' verticalAlign='top'/>
+
+          <Bar radius={[50,50,0,0]} barSize={10} name='Poids (kg)' dataKey="kilogram" fill="#020203" />
+          <Bar radius={[50,50,0,0]} barSize={10} name='Calories brûlées (kCal)' dataKey="calories" fill="#FF0101" />
         </BarChart>
       </ResponsiveContainer>
     );
