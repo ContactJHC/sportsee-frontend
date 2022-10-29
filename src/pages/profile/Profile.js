@@ -8,6 +8,8 @@ import iconProteins from '../../assets/protein-icon.png'
 import iconLipids from '../../assets/fat-icon.png'
 import ChartDailyActivity from '../../components/ChartDailyActivity/ChartDailyActivity'
 import ChartRadar from '../../components/ChartRadar/ChartRadar'
+import ChartAverageTime from '../../components/ChartAverageTime/ChartAverageTime'
+import ChartScore from '../../components/ChartScore/ChartScore'
 
 export default function Profile() {
   
@@ -23,12 +25,16 @@ export default function Profile() {
                 <ChartDailyActivity />
               </div>
               <div id='averageAndRadarAndScoreContainer'>
-                <div id='averageChart'></div>
+                <div id='averageChart'>
+                  <ChartAverageTime />
+                </div>
                 <div id='radarChart'>
                   <ChartRadar />
                 </div>
                   
-                <div id='scoreChart'></div>
+                <div id='scoreChart'>
+                  <ChartScore />
+                </div>
               </div>
             </div>
             <div id='summariesContainer'>
