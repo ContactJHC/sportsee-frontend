@@ -7,7 +7,9 @@
 // import ChartScoreModel from './components/ChartScore/ChartScoreModel';
 import Header from './components/Header/Header'
 import Menu from './components/Menu/Menu'
-import Profile from './pages/profile/Profile';
+// import Profile from './pages/profile/Profile';
+
+import ScoreModel from './components/ChartScore/ScoreModel';
 
 // import ChartRadar from './components/ChartRadar/ChartRadar';
 // import ChartRadarModel from './components/ChartRadar/ChartRadarModel';
@@ -21,11 +23,11 @@ function App() {
     <div className="App">
       <Header />
       <Menu />
-      <Profile />
+      {/* <Profile /> */}
       {/* Ci-dessous, les divz paramétrées pour afficher les diagrammes */}
-      {/* <div style={{width:'500px', height:'500px', border:'solid red 10px', position:'absolute', top:'150px', left:'150px'}}>
-        <ChartScore />
-      </div> */}
+      <div style={{backgroundColor:'#979797', width:'500px', height:'500px', border:'solid red 10px', position:'absolute', top:'150px', left:'150px'}}>
+        <ScoreModel />
+      </div>
       {/* <div style={{width:'500px', height:'500px', border:'solid red 10px', position:'absolute', top:'150px', left:'700px'}}>
         <ChartScoreModel />
       </div> */}

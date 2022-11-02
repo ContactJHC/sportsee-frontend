@@ -34,7 +34,7 @@ p {
 }
 
 #averageAndRadarAndScoreContainer{
-    height: 260px;
+    height: 300px;
     display: flex;
     gap: 30px;
     justify-content: space-between;
@@ -42,7 +42,7 @@ p {
 }
 
 #averageChart, #scoreChart, #radarChart{
-    width: 260px;
+    width: 300px;
 }
 
 #averageChart {

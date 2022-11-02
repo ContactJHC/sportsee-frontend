@@ -40,7 +40,17 @@ const data = [
 ]
 
 export default function ChartDailyActivity() {
-
+    let re = data[0].day.split('-')[2]
+    console.log('re',re);
+    if (re.includes('0')) {
+      console.log('oui');
+      console.log(re.split('0'))
+      re = re.split('0')[1]
+      console.log(re);
+    } else {
+      console.log('non');
+    }
+    
     return (
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
@@ -55,7 +65,12 @@ export default function ChartDailyActivity() {
           }}
         >
           <CartesianGrid strokeDasharray="3 3" vertical={false} />
-          <XAxis dataKey="day"  />
+          {/* <XAxis dataKey= { "day".split('-')[2].includes('0') ?
+            "day".split('-')[2].split('0')[1] : 
+            "day".split('-')[2]
+          }
+            /> */}
+          <XAxis dataKey="day"/>
           <YAxis dataKey="calories" orientation='right'/>
           <Tooltip contentStyle={{backgroundColor:'#E60000',color:'white'}}
           itemStyle={{color:'white', fontFamily:'Roboto'}}/>
