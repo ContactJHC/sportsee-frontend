@@ -1,0 +1,39 @@
+#scoreContainer {
+    position: relative;
+    font-family: Roboto;
+    height: 100%;
+}
+
+#scoreTitle{
+    position: absolute;
+    font-size: 22px;
+    font-weight: bolder;
+    top: 24px;
+    left: 30px;
+    color: #20253A;
+}
+
+/* #graphiqueMerde {
+    position: absolute;
+    top: 20px;
+    z-index: 2;
+} */
+
+#scoreSummary {
+    position: absolute;
+    top: 110px;
+    left: 115px;
+    height: 100%;
+}
+
+#scorePct {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 36px;
+    color: #282D30;
+}
+
+#scoreText {
+    color: #74798C;
+    font-size: 20px;
+}

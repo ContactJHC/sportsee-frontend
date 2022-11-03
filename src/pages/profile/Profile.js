@@ -9,7 +9,8 @@ import iconLipids from '../../assets/fat-icon.png'
 import ChartDailyActivity from '../../components/ChartDailyActivity/ChartDailyActivity'
 import ChartRadar from '../../components/ChartRadar/ChartRadar'
 import ChartAverageTime from '../../components/ChartAverageTime/ChartAverageTime'
-import ChartScore from '../../components/ChartScore/ChartScore'
+// import ChartScore from '../../components/ChartScore/ChartScore'
+import Score from '../../components/ChartScore/Score'
 
 export default function Profile() {
   
@@ -33,7 +34,7 @@ export default function Profile() {
                 </div>
                   
                 <div id='scoreChart'>
-                  <ChartScore />
+                  <Score />
                 </div>
               </div>
             </div>
