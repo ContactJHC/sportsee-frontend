@@ -4,7 +4,7 @@ import { RadialBarChart, RadialBar, Legend, ResponsiveContainer, PolarAngleAxis 
 const data = [
   {
     name: 'Pourcentage',
-    valeur: 35,
+    valeur: 12,
   }
 ];
 
