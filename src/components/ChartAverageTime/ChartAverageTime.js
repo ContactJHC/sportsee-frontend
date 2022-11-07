@@ -1,5 +1,8 @@
 import React, { PureComponent } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import './ChartAverageTime.css'
+import CustomToolTip from './CustomToolTip';
+
 
 const data = [
     {
@@ -35,24 +38,41 @@ const data = [
 export default function ChartAverageTime() {
 
   return (
-    <ResponsiveContainer width="100%" height="100%">
-      <LineChart
-        width={500}
-        height={300}
-        data={data}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" horizontal={false} vertical={false}/>
-        <XAxis dataKey="day" tickLine={false} axisLine={false} tick={{fill:'#FFF', opacity:'0.5', fontSize:'20px'}}/>
-        <YAxis hide={true} />
-        <Tooltip />
-        <Line type="monotone" dataKey="sessionLength" stroke="#FFF" strokeWidth={3} dot={false}/>
-      </LineChart>
-    </ResponsiveContainer>
+    <div id='averageTimeFullChart' style={{height:'100%',width:'100%'}}>
+      <p id='averageTimeTitle'>Durée moyenne des sessions</p>
+      <div id='averageTimeDays'>
+        <p>L</p>
+        <p>M</p>
+        <p>M</p>
+        <p>J</p>
+        <p>V</p>
+        <p>S</p>
+        <p>D</p>
+      </div>
+      <ResponsiveContainer width="100%" height="100%">
+        <LineChart
+          width={500}
+          height={300}
+          data={data}
+          margin={{
+            top: 80,
+            right: 0,
+            left: 0,
+            bottom: 70,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3 3" horizontal={false} vertical={false}/>
+          <XAxis hide dataKey="day" tickLine={false} axisLine={false} />
+          <YAxis hide={true} padding={{bottom: 40}} />
+          <Tooltip wrapperStyle={{ display:'flex', backgroundColor:"white", color: "black"}}
+            labelStyle={{display: "none"}}
+            content={<CustomToolTip/>} />
+          <Line type="natural" dataKey="sessionLength" activeDot={{ stroke: "rgba(255, 255, 255, 0.5)", strokeWidth: 10, r: 5, fill:'#fff'}} 
+          stroke="#fff" 
+          strokeWidth={3} dot={false}/>
+
+        </LineChart>
+      </ResponsiveContainer>
+    </div>
   );
 }

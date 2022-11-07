@@ -1,0 +1,30 @@
+#averageTimeFullChart {
+    position: relative;
+    
+}
+
+#averageTimeTitle {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #fff;
+    opacity: 0.5;
+    
+}
+
+#averageTimeDays {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    justify-content: space-around;
+    bottom: 30px;
+    font-weight: bolder;
+    font-size: 20px;
+    color: #fff;
+    opacity: 0.5;
+}
+
+li.recharts-legend-item  {
+    color: black !important;}
