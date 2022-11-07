@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import './ChartAverageTime.css'
 import CustomToolTip from './CustomToolTip';
-
+import CustomCursor from './CustomCursor';
 
 const data = [
     {
@@ -52,21 +52,19 @@ export default function ChartAverageTime() {
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           width={500}
-          height={300}
+          height={250}
           data={data}
           margin={{
-            top: 80,
-            right: 0,
-            left: 0,
-            bottom: 70,
+            bottom: 10
           }}
         >
           <CartesianGrid strokeDasharray="3 3" horizontal={false} vertical={false}/>
           <XAxis hide dataKey="day" tickLine={false} axisLine={false} />
-          <YAxis hide={true} padding={{bottom: 40}} />
+          <YAxis hide={true} padding={{top:80, bottom: 100}} />
           <Tooltip wrapperStyle={{ display:'flex', backgroundColor:"white", color: "black"}}
             labelStyle={{display: "none"}}
-            content={<CustomToolTip/>} />
+            content={<CustomToolTip/>}
+            cursor={<CustomCursor />} />
           <Line type="natural" dataKey="sessionLength" activeDot={{ stroke: "rgba(255, 255, 255, 0.5)", strokeWidth: 10, r: 5, fill:'#fff'}} 
           stroke="#fff" 
           strokeWidth={3} dot={false}/>
