@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, useEffect } from 'react';
 import { RadialBarChart, RadialBar, Legend, ResponsiveContainer, PolarAngleAxis } from 'recharts';
-
+import { fetchMainDatas } from '../../Services/Services';
 const data = [
   {
     name: 'Pourcentage',
@@ -9,9 +9,15 @@ const data = [
 ];
 
 
-
 export default function ScoreModel() {
 
+  useEffect(()=> {
+    async function getDataScore() {
+      let preData = await fetchMainDatas('12') 
+      console.log(preData);
+    }
+    getDataScore()
+  }, [])
 
     return (
       

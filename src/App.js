@@ -7,8 +7,8 @@
 // import ChartScoreModel from './components/ChartScore/ChartScoreModel';
 import Header from './components/Header/Header'
 import Menu from './components/Menu/Menu'
-// import Profile from './pages/profile/Profile';
-import Spinner from './components/Spinner/Spinner';
+import Profile from './pages/profile/Profile';
+// import Spinner from './components/Spinner/Spinner';
 
 // import Score from './components/ChartScore/Score';
 
@@ -17,19 +17,19 @@ import Spinner from './components/Spinner/Spinner';
 // import ChartDailyActivity from '../../components/ChartDailyActivity/ChartDailyActivity'
 // import ChartDailyActivityModel from '../../components/ChartDailyActivity/ChartDailyActivityModel'
 
-import GetData from './Services/Services'
+// import GetData from './Services/Services'
 
 function App() {
   return (
     <div className="App">
       <Header />
       <Menu />
-      {/* <Profile /> */}
-      <GetData />
+      <Profile />
+      {/* <GetData /> */}
       {/* Ci-dessous, les divz paramétrées pour afficher les diagrammes */}
-      <div style={{backgroundColor:'#FBfbFb', width:'500px', height:'500px', border:'solid red 10px', position:'absolute', top:'150px', left:'150px'}}>
+      {/* <div style={{backgroundColor:'#FBfbFb', width:'500px', height:'500px', border:'solid red 10px', position:'absolute', top:'150px', left:'150px'}}>
         <Spinner />
-      </div>
+      </div> */}
       {/* <div style={{width:'500px', height:'500px', border:'solid red 10px', position:'absolute', top:'150px', left:'700px'}}>
         <ChartScoreModel />
       </div> */}
