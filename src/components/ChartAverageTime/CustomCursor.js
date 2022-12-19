@@ -1,5 +1,14 @@
 import React from 'react'
 import { Rectangle } from "recharts";
+import PropTypes from 'prop-types'
+
+/**
+ * Returns a customized-cursor from a prop array
+ * @param {object} prop 
+ * @param {number} width
+ * @param {array} points
+ * @returns {import('react').ReactElement}
+ */
 
 export default function CustomCursor(prop) {
     const { width, points } = prop;
@@ -16,3 +25,15 @@ export default function CustomCursor(prop) {
         />
     );
 };
+
+CustomCursor.propTypes = {
+    prop: PropTypes.shape({
+      width: PropTypes.number.isRequired,
+      points: PropTypes.arrayOf(
+        PropTypes.shape({
+          x: PropTypes.number.isRequired,
+          y: PropTypes.number.isRequired,
+        }).isRequired,
+      ).isRequired,
+    }),
+  };

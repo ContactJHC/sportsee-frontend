@@ -1,6 +1,14 @@
 import './Summary.css'
+import PropTypes from 'prop-types'
 
-
+/**
+ * Returns a div component including a summary from a string, a number and an icon
+ * @prop {string} name name of the summary
+ * @prop {number} number figure indicator of the summary
+ * @prop {string} icon path to the summary's logo
+ * 
+ * @returns {import('react').ReactElement}
+ */
 
 export default function Summary({name, number, icon}) {
 
@@ -21,4 +29,10 @@ export default function Summary({name, number, icon}) {
         </div>
     </div>
   )
+}
+
+Summary.propTypes = {
+  name: PropTypes.string.isRequired,
+  number: PropTypes.number.isRequired,
+  icon: PropTypes.string.isRequired
 }

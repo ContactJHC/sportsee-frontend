@@ -1,4 +1,11 @@
 import './Banner.css'
+import PropTypes from 'prop-types'
+
+/**
+ * Returns a name-personalized banner component from a prop name
+ * @param {object} userName 
+ * @returns {import('react').ReactElement}
+ */
 
 export default function Banner({userName}) {
   return (
@@ -15,4 +22,8 @@ export default function Banner({userName}) {
         </div>
     </>
   )
+}
+
+Banner.defaultProps = {
+    userName: PropTypes.string.isRequired
 }

@@ -1,5 +1,6 @@
 
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default function CustomToolTip({active, payload }) {
 if (active && payload && payload.length) {
@@ -14,4 +15,9 @@ if (active && payload && payload.length) {
     
   )
 }
+}
+
+CustomToolTip.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.arrayOf(PropTypes.any),
 }

@@ -1,9 +1,16 @@
-import React, { PureComponent } from 'react';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React, { PureComponent } from 'react'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import './ChartAverageTime.css'
-import CustomToolTip from './CustomToolTip';
-import CustomCursor from './CustomCursor';
+import CustomToolTip from './CustomToolTip'
+import CustomCursor from './CustomCursor'
+import PropTypes from 'prop-types'
 
+
+/**
+ * Returns a line-chart component from fetched data
+ * @param {array} data 
+ * @returns {import('react').ReactElement}
+ */
 const data = [
     {
         day: 1,
@@ -73,4 +80,14 @@ export default function ChartAverageTime() {
       </ResponsiveContainer>
     </div>
   );
+  
+}
+
+ChartAverageTime.propTypes = {
+  sessions: PropTypes.arrayOf(
+    PropTypes.shape({
+      day: PropTypes.number.isRequired,
+      sessionLength: PropTypes.number.isRequired,
+    }).isRequired,
+  )
 }

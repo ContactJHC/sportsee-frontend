@@ -3,6 +3,11 @@ import meditation from '../../assets/meditation.png'
 import swimming from '../../assets/swimming.png'
 import biking from '../../assets/biking.png'
 import workout from '../../assets/workout.png'
+/**
+ * Returns a header component including a nav bar
+ * @returns {import('react').ReactElement}
+ */
+
 
 export default function Menu() {
   return (

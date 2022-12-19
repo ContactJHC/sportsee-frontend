@@ -12,7 +12,7 @@ p {
 #chartsAndSummariesContainer {
     display: flex;
     justify-content: space-between;
-    margin-top: 77px;
+    margin-top: 10px;
 }
 
 #chartsContainer {
@@ -56,4 +56,38 @@ p {
 
 #scoreChart{
     background-color: #FBFBFB;
+}
+
+@media (max-width: 1780px) {
+    #chartsAndSummariesContainer {
+        flex-direction: column-reverse;
+    }
+
+    #summariesContainer {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 80%;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .categoryContainer {
+        width: 40%;
+    }
+}
+
+@media (max-width: 1250px) {
+    #dailyActivityContainer {
+        width: 750px;
+    }
+
+    #averageAndRadarAndScoreContainer {
+        justify-content: center;
+        flex-wrap: wrap;   
+    }
+
+    #averageChart, #scoreChart, #radarChart {
+        width: 350px;
+        height: 350px;
+    }
 }

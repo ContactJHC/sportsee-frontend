@@ -1,6 +1,14 @@
 import React, { PureComponent } from 'react';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 import './ChartRadar.css'
+import PropTypes from 'prop-types'
+
+/**
+ * Returns a radar-chart component from fetched data
+ * @param {object} kindPerformance
+ * @param {array} datas 
+ * @returns {import('react').ReactElement}
+ */
 
 const kindPerformance = {
     1: 'Cardio',
@@ -63,4 +71,12 @@ export default function ChartRadar() {
         </RadarChart>
       </ResponsiveContainer>
     );
-  }
+}
+
+ChartRadar.propTypes = {
+datas: PropTypes.shape({
+    value: PropTypes.number.isRequired,
+    kind: PropTypes.number.isRequired
+}),
+data: PropTypes.arrayOf(PropTypes.object)
+}
