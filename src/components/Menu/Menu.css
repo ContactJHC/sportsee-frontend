@@ -1,5 +1,5 @@
 #lateralMenu {
-    height: 100vh;
+    height: calc(100vh - 91px);
     background-color: #020203;
     width: 117px;
     display: flex;
@@ -23,4 +23,14 @@
     position: absolute;
     writing-mode: sideways-lr;
     bottom: 59px;
+}
+
+@media (max-width: 1780px) {
+    #lateralMenu {
+        height: 100vh;
+    }
+
+    #lateralCopyright {
+        bottom: 5px;
+    }
 }

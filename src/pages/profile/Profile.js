@@ -29,6 +29,7 @@ export default function Profile() {
         <div id='chartsAndSummariesContainer'>
             <div id='chartsContainer'>
               <div id='dailyActivityContainer'>
+                <div id='dailyActivityTitle'>Activité quotidienne</div>
                 <ChartDailyActivity />
               </div>
               <div id='averageAndRadarAndScoreContainer'>

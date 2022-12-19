@@ -2,6 +2,7 @@
 .categoryContainer {
     background-color: #FBFBFB;
     height: 124px;
+    border-radius: 15px;
 }
 
 .categoryContainer, .categorySummary {

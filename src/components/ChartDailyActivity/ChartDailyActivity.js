@@ -66,7 +66,7 @@ export default function ChartDailyActivity() {
           <YAxis dataKey="calories" orientation='right'/>
           <Tooltip contentStyle={{backgroundColor:'#E60000',color:'white'}}
           itemStyle={{color:'white', fontFamily:'Roboto'}}/>
-          <Legend iconType='circle' width={400} align='right' verticalAlign='top'/>
+          <Legend iconType='circle' width={400} align='right' verticalAlign='top' height={50}/>
 
           <Bar radius={[50,50,0,0]} barSize={10} name='Poids (kg)' dataKey="kilogram" fill="#020203" />
           <Bar radius={[50,50,0,0]} barSize={10} name='Calories brûlées (kCal)' dataKey="calories" fill="#FF0101" />

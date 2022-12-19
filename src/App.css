@@ -1,6 +1,3 @@
-.App {
-    height: 1000px;
-}
 
 @media (max-width: 1780px) {
     .App {
@@ -8,7 +5,7 @@
     }
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 1270px) {
     .App {
         height: 1650px;
     }

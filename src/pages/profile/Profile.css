@@ -5,7 +5,7 @@ p {
 #mainContainer {
     position: absolute;
     left: 217px ;
-    top: 159px;
+    top: 140px;
     width: 80%;
   }
 
@@ -31,6 +31,9 @@ p {
 #dailyActivityContainer{
     height: 260px;
     margin-bottom: 30px;
+    background-color: #FBFBFB;
+    border-radius: 15px;
+
 }
 
 #averageAndRadarAndScoreContainer{
@@ -58,6 +61,14 @@ p {
     background-color: #FBFBFB;
 }
 
+#dailyActivityTitle {
+    position: absolute;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 32px;
+    padding-top: 24px;
+}
+
 @media (max-width: 1780px) {
     #chartsAndSummariesContainer {
         flex-direction: column-reverse;
@@ -74,11 +85,16 @@ p {
     .categoryContainer {
         width: 40%;
     }
+
+    #chartsAndSummariesContainer {
+        align-items: center;
+    }
 }
 
-@media (max-width: 1250px) {
+@media (max-width: 1280px) {
     #dailyActivityContainer {
         width: 750px;
+        margin: 20px auto;
     }
 
     #averageAndRadarAndScoreContainer {
