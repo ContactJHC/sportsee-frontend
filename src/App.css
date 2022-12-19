@@ -1,0 +1,15 @@
+.App {
+    height: 1000px;
+}
+
+@media (max-width: 1780px) {
+    .App {
+        height: 1300px;
+    }
+}
+
+@media (max-width: 1250px) {
+    .App {
+        height: 1650px;
+    }
+}

@@ -1,12 +1,13 @@
 #lateralMenu {
-    height: calc(100vh - 91px);
+    height: 100vh;
     background-color: #020203;
     width: 117px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
+    position: sticky;
+    top: 0;
 }
 
 #lateralIcons img {
