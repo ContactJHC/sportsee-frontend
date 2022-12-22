@@ -38,7 +38,7 @@ export const fetchMainData = async (userId) => {
         const userActivityData = await fetch(`data/data.json`)
           .then((res) => res.json())
           .then((data) => data.USER_ACTIVITY)
-        return userActivityData.filter((el) => el.userId === usId)[0]
+        return userActivityData.filter((el) => el.userId + '' === usId)[0]
       } catch (err) {
         console.log(err);
         return null

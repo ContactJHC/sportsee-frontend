@@ -10,14 +10,6 @@ import PropTypes from 'prop-types'
  * @returns {import('react').ReactElement}
  */
 
-
-// const data = [
-//   {
-//     name: 'Pourcentage',
-//     valeur: 48,
-//   }
-// ];
-
 export default function Score() {
 
   const [dataScore, setDataScore] = useState([])
