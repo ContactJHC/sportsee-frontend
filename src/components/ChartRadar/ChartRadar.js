@@ -20,7 +20,6 @@ export default function ChartRadar() {
         async function getPerfScore() {
             setLoading(true)
             let preDat = await fetchPerformanceData('12')
-            console.log(preDat.data);
 
             const kindPerf = {
                 1: 'Cardio',
@@ -40,8 +39,6 @@ export default function ChartRadar() {
                     {value : e.value, kind : kindPerf[index]}
                 )
             })
-
-            console.log(dt);
             setPerfScore(dt)
             setLoading(false)
             }
