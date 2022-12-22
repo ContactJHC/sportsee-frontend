@@ -13,7 +13,7 @@ import PropTypes from 'prop-types'
 export default function Score() {
 
   const [dataScore, setDataScore] = useState([])
-  const [loading,setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   useEffect(()=> {
     async function getDataScore() {

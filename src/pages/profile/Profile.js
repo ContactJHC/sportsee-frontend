@@ -1,3 +1,7 @@
+import { useState, useEffect } from 'react'
+import { fetchMainData } from '../../Services/Services'
+
+
 import './Profile.css'
 
 import Banner from '../../components/Banner/Banner'
@@ -19,38 +23,63 @@ import Score from '../../components/ChartScore/Score'
  */
 
 export default function Profile() {
-  
+  const [usName, setUsName] = useState('')
+  const [calorieCount, setCalorieCount] = useState('')
+  const [proteinCount, setProteinCount] = useState('')
+  const [carbohydrateCount, setCarbohydrateCount] = useState('')
+  const [lipidCount, setLipidCount] = useState('')
+  const [loading, setLoading] = useState(false)
+
+  useEffect(()=> {
+    async function getDataScore() {
+      setLoading(true)
+      let preData = await fetchMainData('12')
+      console.log(preData.keyData.calorieCount);
+      setUsName(preData.userInfos.firstName)
+      setCalorieCount(preData.keyData.calorieCount)
+      setProteinCount(preData.keyData.proteinCount)
+      setCarbohydrateCount(preData.keyData.carbohydrateCount)
+      setLipidCount(preData.keyData.lipidCount)
+      console.log(usName);
+      setLoading(false)
+    }
+    getDataScore()
+  }, [])
   
   return (
     <div id='mainContainer'>
         <div id='bannerContainer'>
-            <Banner userName={'Thomas'}/>
+            {usName && (<Banner userName={usName}/>)}
         </div>
-        <div id='chartsAndSummariesContainer'>
-            <div id='chartsContainer'>
-              <div id='dailyActivityContainer'>
-                <div id='dailyActivityTitle'>Activité quotidienne</div>
-                <ChartDailyActivity />
-              </div>
-              <div id='averageAndRadarAndScoreContainer'>
-                <div id='averageChart'>
-                  <ChartAverageTime />
+        {loading && (
+          <div>Spinner à insérer</div>)}
+  {usName && (console.log(usName,calorieCount,proteinCount,carbohydrateCount,lipidCount ))}
+          <div id='chartsAndSummariesContainer'>
+              <div id='chartsContainer'>
+                <div id='dailyActivityContainer'>
+                  <div id='dailyActivityTitle'>Activité quotidienne</div>
+                  <ChartDailyActivity />
                 </div>
-                <div id='radarChart'>
-                  <ChartRadar />
-                </div>                  
-                <div id='scoreChart'>
-                  <Score />
+                <div id='averageAndRadarAndScoreContainer'>
+                  <div id='averageChart'>
+                    <ChartAverageTime />
+                  </div>
+                  <div id='radarChart'>
+                    <ChartRadar />
+                  </div>                  
+                  <div id='scoreChart'>
+                    <Score />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div id='summariesContainer'>
-              <Summary name='Calories' number='1,930' icon={iconCalories}/>
-              <Summary name='Protéines' number='155' icon={iconProteins}/>
-              <Summary name='Glucides' number='290' icon={iconCarbs}/>
-              <Summary name='Lipides' number='50' icon={iconLipids}/>
-            </div>
-        </div>
+              <div id='summariesContainer'>
+                {calorieCount && (<Summary name='Calories' number={calorieCount} icon={iconCalories}/>)}
+                {proteinCount && (<Summary name='Protéines' number={proteinCount} icon={iconProteins}/>)}
+                {carbohydrateCount && (<Summary name='Glucides' number={carbohydrateCount} icon={iconCarbs}/>)}
+                {lipidCount && (<Summary name='Lipides' number={lipidCount} icon={iconLipids}/>)}
+              </div>
+          </div>
+        // )}
     </div>
   )
 }
