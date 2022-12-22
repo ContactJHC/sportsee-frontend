@@ -1,28 +1,20 @@
 let mock = process.env.REACT_APP_DEVELOPMENT
 
-// export default async function fetchData(userId) {
-//     try {
-//         const response = await fetch(`http://localhost:3000/user/${userId}`)
-//         let userData  = await response.json()
-//         return userData            
-//     }
-//     catch(err) {
-//         console.log(err)        
-//     }
-// }
-
 /**
  * Returns user fetched datas from a call to the database
  * @returns {array} userMainDatas 
  */
    
+
 export const fetchMainData = async (userId) => {
     if (mock) {
       try {
         const userMainDatas = await fetch(`data/data.json`)
           .then((res) => res.json())
           .then((data) => data.USER_MAIN_DATA)
-        return userMainDatas.filter((el) => el.id + '' === userId)[0]
+        return (
+          userMainDatas.filter((el) => el.id + '' === userId)[0]
+        )
       } catch (err) {
         console.log(err);
         return null

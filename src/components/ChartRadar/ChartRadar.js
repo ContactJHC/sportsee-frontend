@@ -65,7 +65,6 @@ export default function ChartRadar() {
         <RadarChart cx="50%" cy="50%" outerRadius="80%" data={data}>
           <PolarGrid radialLines={false} />
           <PolarAngleAxis tickSize={15} orient={30} axisLine={false} dataKey='kind' tick={{fill:'#fff'}}/>
-          {/* <PolarAngleAxis axisLine={false} dataKey={`${kindPerformance}.kind`} tick={{fill:'#fff'}}/> */}
           <PolarRadiusAxis axisLine={false} tick={false}  />
           <Radar dataKey="value" stroke="#FF0101" fill="#FF0101" fillOpacity={0.6} />
         </RadarChart>

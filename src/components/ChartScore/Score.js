@@ -1,4 +1,4 @@
-import React, { PureComponent, useEffect } from 'react';
+import React, { PureComponent, useState, useEffect } from 'react';
 import { RadialBarChart, RadialBar, Legend, ResponsiveContainer, PolarAngleAxis } from 'recharts';
 import { fetchMainData } from '../../Services/Services';
 import './Score.css'
@@ -11,26 +11,40 @@ import PropTypes from 'prop-types'
  */
 
 
-const data = [
-  {
-    name: 'Pourcentage',
-    valeur: 12,
-  }
-];
+// const data = [
+//   {
+//     name: 'Pourcentage',
+//     valeur: 48,
+//   }
+// ];
 
 export default function Score() {
 
+  const [dataScore, setDataScore] = useState([])
+  const [loading,setLoading] = useState(false)
+
   useEffect(()=> {
     async function getDataScore() {
-      let preData = await fetchMainData('12') 
-      console.log(preData);
+      setLoading(true)
+      let preData = await fetchMainData('12')
+      setDataScore([
+        {
+          name: 'Pourcentage',
+          valeur: preData.todayScore * 100
+        }
+      ])
+      setLoading(false)
     }
     getDataScore()
   }, [])
 
+  console.log(dataScore);
   return (
+    <>
+    {loading && (
+    <div>spinner à insérer</div>)}
+    {dataScore[0] && (
     <div id='scoreContainer' >
-      {/* style={{backgroundColor:'#FBfbFb', width:'500px', height:'500px', border:'solid red 10px', position:'absolute', top:'150px', left:'150px'}}> */}
       <ResponsiveContainer width="100%" height="100%">
         <RadialBarChart  
             innerRadius="100%" 
@@ -38,7 +52,7 @@ export default function Score() {
             barSize={10}
             startAngle={90}
             endAngle={450} 
-            data={data}
+            data={dataScore}
             style={{ background: "transparent"}}
         >
         
@@ -48,7 +62,6 @@ export default function Score() {
             angleAxisId={0}
             axisLineType='circle'
             tick={false}
-            // background={{ fill: "blue" }}
             style={{fill: "#FFF" }}
           />
           <RadialBar 
@@ -57,20 +70,20 @@ export default function Score() {
             dataKey= 'valeur'
             style={{fill: "#FF0000", background:"white" }}
             />
-          {/* <Legend iconSize={10} layout="vertical" verticalAlign="middle" wrapperStyle={style} /> */}
         </RadialBarChart>
       </ResponsiveContainer>
         <div id='scoreTitle'>Score</div>
         <div id="scoreSummary">
-          <div id='scorePct'>{data[0].valeur}%</div>
+          <div id='scorePct'>{dataScore[0].valeur}%</div>
           <div id='scoreText'>de votre <br/>objectif</div>
         </div>
-        
     </div>
+    )}
+  </>
   )
 }
 
-Score.propTypes = {
-  data: PropTypes.object.isRequired,
-  valeur: PropTypes.number.isRequired
-}
+// Score.propTypes = {
+//   data: PropTypes.object.isRequired,
+//   valeur: PropTypes.number.isRequired
+// }
