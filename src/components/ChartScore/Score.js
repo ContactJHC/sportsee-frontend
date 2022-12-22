@@ -38,7 +38,6 @@ export default function Score() {
     getDataScore()
   }, [])
 
-  console.log(dataScore);
   return (
     <>
     {loading && (

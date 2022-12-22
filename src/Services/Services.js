@@ -85,8 +85,10 @@ export const fetchMainData = async (userId) => {
       try {
         const userPerformanceData = await fetch(`data/data.json`)
           .then((res) => res.json())
-          .then((data) => data.USER_AVERAGE_SESSIONS)
-        return userPerformanceData.filter((el) => el.userId === usId)[0]
+          .then((data) => data.USER_PERFORMANCE)
+        return (
+          userPerformanceData.filter(
+            (el) => el.userId + '' === usId)[0])
       } catch (err) {
         console.log(err);
         return null
