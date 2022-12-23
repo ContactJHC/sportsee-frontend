@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { fetchMainData } from '../../Services/Services'
+import { fetchMainData, fetchSessionsData } from '../../Services/Services'
 
 
 import './Profile.css'
@@ -16,7 +16,10 @@ import ChartDailyActivity from '../../components/ChartDailyActivity/ChartDailyAc
 import ChartRadar from '../../components/ChartRadar/ChartRadar'
 import ChartAverageTime from '../../components/ChartAverageTime/ChartAverageTime'
 import Score from '../../components/ChartScore/Score'
+
 import MainDataFormater from '../../models/MainDataFormater'
+import AverageTimeDataFormater from '../../models/AverageTimeDataFormater'
+
 
 /**
  * Returns a single page component including a banner, 3 summaries and 4 charts
@@ -24,32 +27,41 @@ import MainDataFormater from '../../models/MainDataFormater'
  */
 
 export default function Profile() {
+  const [loading, setLoading] = useState(false)
+
   const [usName, setUsName] = useState('')
   const [calorieCount, setCalorieCount] = useState('')
   const [proteinCount, setProteinCount] = useState('')
   const [carbohydrateCount, setCarbohydrateCount] = useState('')
   const [lipidCount, setLipidCount] = useState('')
   const [dataScore, setDataScore] = useState([])
-  const [loading, setLoading] = useState(false)
+
+  const [dataAverage, setDataAverage] = useState([])
+  
 
 
   useEffect(()=> {
-    async function getDataScore() {
+    async function getData() {
       setLoading(true)
-      let preData = await fetchMainData('12')
-      const formated = new MainDataFormater(preData)
-      setUsName(formated.name)
-      setCalorieCount(formated.calorie)
-      setProteinCount(formated.protein)
-      setCarbohydrateCount(formated.carbohydrate)
-      setLipidCount(formated.lipid)
-      setDataScore(formated.dataScore)
 
+      let mainData = await fetchMainData('18')
+      let formatedMainData = new MainDataFormater(mainData)
+      setUsName(formatedMainData.name)
+      setCalorieCount(formatedMainData.calorie)
+      setProteinCount(formatedMainData.protein)
+      setCarbohydrateCount(formatedMainData.carbohydrate)
+      setLipidCount(formatedMainData.lipid)
+      setDataScore(formatedMainData.dataScore)
 
+      let sessionsData = await fetchSessionsData('12')
+      let formatedSessionsData = new AverageTimeDataFormater(sessionsData)
+      setDataAverage(formatedSessionsData.dataAverage)
+
+      
 
       setLoading(false)
     }
-    getDataScore()
+    getData()
   }, [])
   
   return (
@@ -67,7 +79,7 @@ export default function Profile() {
                 </div>
                 <div id='averageAndRadarAndScoreContainer'>
                   <div id='averageChart'>
-                    <ChartAverageTime />
+                  {dataAverage[1] && (<ChartAverageTime donnees={dataAverage} />)}
                   </div>
                   <div id='radarChart'>
                     <ChartRadar />

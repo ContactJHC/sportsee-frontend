@@ -1,9 +1,7 @@
-import React, { PureComponent, useState, useEffect } from 'react';
+import React, { PureComponent } from 'react';
 import { RadialBarChart, RadialBar, Legend, ResponsiveContainer, PolarAngleAxis } from 'recharts';
-import { fetchMainData } from '../../Services/Services';
 import './Score.css'
 import PropTypes from 'prop-types'
-import MainDataFormater from '../../models/MainDataFormater';
 
 /**
  * Returns a radial-bar-chart component from fetched data
