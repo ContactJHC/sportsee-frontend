@@ -20,29 +20,9 @@ export default function ChartRadar() {
     useEffect(()=> {
         async function getPerfScore() {
             setLoading(true)
-            let preDat = await fetchPerformanceData('18')
-
-            // const kindPerf = {
-            //     1: 'Cardio',
-            //     2: 'Énergie',
-            //     3: 'Endurance',
-            //     4: 'Force',
-            //     5: 'Vitesse',
-            //     6: 'Intensité'
-            // }
-
+            let preDat = await fetchPerformanceData('12')
             let dataz = preDat.data
             const perfData = new PerformancesDataFormater(dataz)
-            
-
-            // let dt=[]
-            // let index = 1
-            // dataz.forEach((e,i) => {
-            //     index = i+1
-            //     dt.push(
-            //         {value : e.value, kind : kindPerf[index]}
-            //     )
-            // })
             setPerfScore(perfData.perfScore)
             setLoading(false)
             }

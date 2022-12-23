@@ -2,6 +2,7 @@ import React, { PureComponent, useState, useEffect } from 'react';
 import { fetchActivityData } from '../../Services/Services';
 import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Label } from 'recharts';
 import PropTypes from 'prop-types'
+import ActivityDataFormater from '../../models/ActivityDataFormater';
 
 /**
  * Returns a bar-chart component from fetched data
@@ -16,8 +17,9 @@ export default function ChartDailyActivity() {
   useEffect(()=> {
     async function getDataScore() {
       setLoading(true)
-      let preData = await fetchActivityData('12')
-      setDataDaily(preData.sessions)   
+      let preData = await fetchActivityData('18')
+      const formatedData = new ActivityDataFormater(preData)
+      setDataDaily(formatedData.dataActivity)
       setLoading(false)
     }
     getDataScore()
