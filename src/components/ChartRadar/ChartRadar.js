@@ -3,6 +3,7 @@ import { fetchPerformanceData } from '../../Services/Services';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 import './ChartRadar.css'
 import PropTypes from 'prop-types'
+import PerformancesDataFormater from '../../models/PerformancesDataFormater';
 
 /**
  * Returns a radar-chart component from fetched data
@@ -21,30 +22,34 @@ export default function ChartRadar() {
             setLoading(true)
             let preDat = await fetchPerformanceData('18')
 
-            const kindPerf = {
-                1: 'Cardio',
-                2: 'Énergie',
-                3: 'Endurance',
-                4: 'Force',
-                5: 'Vitesse',
-                6: 'Intensité'
-            }
+            // const kindPerf = {
+            //     1: 'Cardio',
+            //     2: 'Énergie',
+            //     3: 'Endurance',
+            //     4: 'Force',
+            //     5: 'Vitesse',
+            //     6: 'Intensité'
+            // }
 
             let dataz = preDat.data
-            let dt=[]
-            let index = 1
-            dataz.forEach((e,i) => {
-                index = i+1
-                dt.push(
-                    {value : e.value, kind : kindPerf[index]}
-                )
-            })
-            setPerfScore(dt)
+            const perfData = new PerformancesDataFormater(dataz)
+            
+
+            // let dt=[]
+            // let index = 1
+            // dataz.forEach((e,i) => {
+            //     index = i+1
+            //     dt.push(
+            //         {value : e.value, kind : kindPerf[index]}
+            //     )
+            // })
+            setPerfScore(perfData.perfScore)
             setLoading(false)
             }
         getPerfScore()
     }, [])
 
+    
     return (
         <>
         {loading && (
@@ -65,8 +70,7 @@ export default function ChartRadar() {
 
 ChartRadar.propTypes = {
 datas: PropTypes.shape({
-    value: PropTypes.number.isRequired,
-    kind: PropTypes.number.isRequired
-}),
-data: PropTypes.arrayOf(PropTypes.object)
+    perfScore: PropTypes.arrayOf(PropTypes.object).isRequired,
+})
+// data: PropTypes.arrayOf(PropTypes.object)
 }

@@ -33,7 +33,7 @@ export default function Profile() {
   useEffect(()=> {
     async function getDataScore() {
       setLoading(true)
-      let preData = await fetchMainData('18')
+      let preData = await fetchMainData('12')
       setUsName(preData.userInfos.firstName)
       setCalorieCount(preData.keyData.calorieCount)
       setProteinCount(preData.keyData.proteinCount)
@@ -76,7 +76,6 @@ export default function Profile() {
                 {lipidCount && (<Summary name='Lipides' number={lipidCount} icon={iconLipids}/>)}
               </div>
           </div>
-        // )}
     </div>
   )
 }

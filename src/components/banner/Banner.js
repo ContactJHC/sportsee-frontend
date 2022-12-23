@@ -11,7 +11,7 @@ export default function Banner({userName}) {
   return (
     <>
         <div id='greeting'>
-            <p>Bonjour &#20;
+            <p>Bonjour &nbsp;
                 <span id='userName'>
                     {userName}
                 </span>
