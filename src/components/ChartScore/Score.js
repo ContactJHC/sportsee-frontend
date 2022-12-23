@@ -3,7 +3,7 @@ import { RadialBarChart, RadialBar, Legend, ResponsiveContainer, PolarAngleAxis 
 import { fetchMainData } from '../../Services/Services';
 import './Score.css'
 import PropTypes from 'prop-types'
-import ScoreDataFormater from '../../models/ScoreDataFormater';
+import MainDataFormater from '../../models/MainDataFormater';
 
 /**
  * Returns a radial-bar-chart component from fetched data
@@ -20,14 +20,8 @@ export default function Score() {
     async function getDataScore() {
       setLoading(true)
       let preData = await fetchMainData('18')
-      const formatedScore = new ScoreDataFormater(preData)
+      const formatedScore = new MainDataFormater(preData)
       setDataScore(formatedScore.dataScore)
-      // setDataScore([
-      //   {
-      //     name: 'Pourcentage',
-      //     valeur: preData.todayScore * 100
-      //   }
-      // ])
       setLoading(false)
     }
     getDataScore()

@@ -16,6 +16,7 @@ import ChartDailyActivity from '../../components/ChartDailyActivity/ChartDailyAc
 import ChartRadar from '../../components/ChartRadar/ChartRadar'
 import ChartAverageTime from '../../components/ChartAverageTime/ChartAverageTime'
 import Score from '../../components/ChartScore/Score'
+import MainDataFormater from '../../models/MainDataFormater'
 
 /**
  * Returns a single page component including a banner, 3 summaries and 4 charts
@@ -33,12 +34,13 @@ export default function Profile() {
   useEffect(()=> {
     async function getDataScore() {
       setLoading(true)
-      let preData = await fetchMainData('12')
-      setUsName(preData.userInfos.firstName)
-      setCalorieCount(preData.keyData.calorieCount)
-      setProteinCount(preData.keyData.proteinCount)
-      setCarbohydrateCount(preData.keyData.carbohydrateCount)
-      setLipidCount(preData.keyData.lipidCount)
+      let preData = await fetchMainData('18')
+      const formated = new MainDataFormater(preData)
+      setUsName(formated.name)
+      setCalorieCount(formated.calorie)
+      setProteinCount(formated.protein)
+      setCarbohydrateCount(formated.carbohydrate)
+      setLipidCount(formated.lipid)
       setLoading(false)
     }
     getDataScore()
