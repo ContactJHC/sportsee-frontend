@@ -5,6 +5,7 @@ import './ChartAverageTime.css'
 import CustomToolTip from './CustomToolTip'
 import CustomCursor from './CustomCursor'
 import PropTypes from 'prop-types'
+import AverageTimeDataFormater from '../../models/AverageTimeDataFormater';
 
 
 /**
@@ -23,7 +24,8 @@ export default function ChartAverageTime() {
     async function getDataScore() {
       setLoading(true)
       let preData = await fetchSessionsData('12')
-      setDataAverage(preData.sessions)      
+      const formatedAverageData = new AverageTimeDataFormater(preData)
+      setDataAverage(formatedAverageData.dataAverage)    
       setLoading(false)
     }
     getDataScore()
