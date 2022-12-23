@@ -5,6 +5,7 @@ import './Profile.css'
 
 import Banner from '../../components/Banner/Banner'
 import Summary from '../../components/Summary/Summary'
+import Spinner from '../../components/Spinner/Spinner'
 
 import iconCalories from '../../assets/calories-icon.png'
 import iconCarbs from '../../assets/carbs-icon.png'
@@ -21,13 +22,20 @@ import AverageTimeDataFormater from '../../models/AverageTimeDataFormater'
 import ActivityDataFormater from '../../models/ActivityDataFormater'
 import PerformancesDataFormater from '../../models/PerformancesDataFormater'
 
-
 /**
  * Returns a single page component including a banner, 3 summaries and 4 charts
  * @returns {import('react').ReactElement}
  */
 
 export default function Profile() {
+
+  let userId = '18'
+  var url = new URL(window.location.href)
+  // example : 'http://localhost:3001/?id=12'
+  if(url.searchParams.get("id")) {
+    userId = url.searchParams.get("id")
+  }
+
   const [loading, setLoading] = useState(false)
 
   const [usName, setUsName] = useState('')
@@ -47,7 +55,7 @@ export default function Profile() {
     async function getData() {
       setLoading(true)
 
-      let mainData = await fetchMainData('18')
+      let mainData = await fetchMainData(userId)
       let formatedMainData = new MainDataFormater(mainData)
       setUsName(formatedMainData.name)
       setCalorieCount(formatedMainData.calorie)
@@ -56,15 +64,15 @@ export default function Profile() {
       setLipidCount(formatedMainData.lipid)
       setDataScore(formatedMainData.dataScore)
 
-      let sessionsData = await fetchSessionsData('12')
+      let sessionsData = await fetchSessionsData(userId)
       let formatedSessionsData = new AverageTimeDataFormater(sessionsData)
       setDataAverage(formatedSessionsData.dataAverage)
 
-      let activityData = await fetchActivityData('18')
+      let activityData = await fetchActivityData(userId)
       let formatedActivityData = new ActivityDataFormater(activityData)
       setDataDaily(formatedActivityData.dataActivity)
 
-      let performanceData = await fetchPerformanceData('18')
+      let performanceData = await fetchPerformanceData(userId)
       let formatedPerformanceData = new PerformancesDataFormater(performanceData.data)
       setPerfScore(formatedPerformanceData.perfScore)
 
@@ -78,7 +86,7 @@ export default function Profile() {
         <div id='bannerContainer'>
             {usName && (<Banner userName={usName}/>)}
         </div>
-        {loading && (<div>Spinner à insérer</div>)}
+        {loading && (<Spinner />)}
         <div id='chartsAndSummariesContainer'>
             <div id='chartsContainer'>
               <div id='dailyActivityContainer'>
