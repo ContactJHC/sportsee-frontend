@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import { fetchMainData, fetchSessionsData } from '../../Services/Services'
-
+import { fetchMainData, fetchSessionsData, fetchActivityData, fetchPerformanceData} from '../../Services/Services'
 
 import './Profile.css'
 
@@ -19,6 +18,8 @@ import Score from '../../components/ChartScore/Score'
 
 import MainDataFormater from '../../models/MainDataFormater'
 import AverageTimeDataFormater from '../../models/AverageTimeDataFormater'
+import ActivityDataFormater from '../../models/ActivityDataFormater'
+import PerformancesDataFormater from '../../models/PerformancesDataFormater'
 
 
 /**
@@ -38,7 +39,9 @@ export default function Profile() {
 
   const [dataAverage, setDataAverage] = useState([])
   
+  const [dataDaily, setDataDaily] = useState([])
 
+  const [perfScore, setPerfScore] = useState([])
 
   useEffect(()=> {
     async function getData() {
@@ -57,7 +60,13 @@ export default function Profile() {
       let formatedSessionsData = new AverageTimeDataFormater(sessionsData)
       setDataAverage(formatedSessionsData.dataAverage)
 
-      
+      let activityData = await fetchActivityData('18')
+      let formatedActivityData = new ActivityDataFormater(activityData)
+      setDataDaily(formatedActivityData.dataActivity)
+
+      let performanceData = await fetchPerformanceData('18')
+      let formatedPerformanceData = new PerformancesDataFormater(performanceData.data)
+      setPerfScore(formatedPerformanceData.perfScore)
 
       setLoading(false)
     }
@@ -69,33 +78,32 @@ export default function Profile() {
         <div id='bannerContainer'>
             {usName && (<Banner userName={usName}/>)}
         </div>
-        {loading && (
-          <div>Spinner à insérer</div>)}
-          <div id='chartsAndSummariesContainer'>
-              <div id='chartsContainer'>
-                <div id='dailyActivityContainer'>
-                  <div id='dailyActivityTitle'>Activité quotidienne</div>
-                  <ChartDailyActivity />
+        {loading && (<div>Spinner à insérer</div>)}
+        <div id='chartsAndSummariesContainer'>
+            <div id='chartsContainer'>
+              <div id='dailyActivityContainer'>
+                <div id='dailyActivityTitle'>Activité quotidienne</div>
+                {dataDaily[1] && (<ChartDailyActivity donnees={dataDaily}/>)}
+              </div>
+              <div id='averageAndRadarAndScoreContainer'>
+                <div id='averageChart'>
+                {dataAverage[1] && (<ChartAverageTime donnees={dataAverage} />)}
                 </div>
-                <div id='averageAndRadarAndScoreContainer'>
-                  <div id='averageChart'>
-                  {dataAverage[1] && (<ChartAverageTime donnees={dataAverage} />)}
-                  </div>
-                  <div id='radarChart'>
-                    <ChartRadar />
-                  </div>                  
-                  <div id='scoreChart'>
-                    {dataScore[0] && (<Score donnees={dataScore}/>)}
-                  </div>
+                <div id='radarChart'>
+                {perfScore[1] && (<ChartRadar donnees={perfScore}/>)}
+                </div>                  
+                <div id='scoreChart'>
+                  {dataScore[0] && (<Score donnees={dataScore}/>)}
                 </div>
               </div>
-              <div id='summariesContainer'>
-                {calorieCount && (<Summary name='Calories' number={calorieCount} icon={iconCalories}/>)}
-                {proteinCount && (<Summary name='Protéines' number={proteinCount} icon={iconProteins}/>)}
-                {carbohydrateCount && (<Summary name='Glucides' number={carbohydrateCount} icon={iconCarbs}/>)}
-                {lipidCount && (<Summary name='Lipides' number={lipidCount} icon={iconLipids}/>)}
-              </div>
-          </div>
+            </div>
+            <div id='summariesContainer'>
+              {calorieCount && (<Summary name='Calories' number={calorieCount} icon={iconCalories}/>)}
+              {proteinCount && (<Summary name='Protéines' number={proteinCount} icon={iconProteins}/>)}
+              {carbohydrateCount && (<Summary name='Glucides' number={carbohydrateCount} icon={iconCarbs}/>)}
+              {lipidCount && (<Summary name='Lipides' number={lipidCount} icon={iconLipids}/>)}
+            </div>
+        </div>
     </div>
   )
 }

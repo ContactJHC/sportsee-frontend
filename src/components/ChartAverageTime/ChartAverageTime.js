@@ -1,12 +1,9 @@
-import React, { PureComponent, useState, useEffect } from 'react'
-import { fetchSessionsData } from '../../Services/Services';
+import React, { PureComponent } from 'react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import './ChartAverageTime.css'
 import CustomToolTip from './CustomToolTip'
 import CustomCursor from './CustomCursor'
 import PropTypes from 'prop-types'
-// import AverageTimeDataFormater from '../../models/AverageTimeDataFormater'
-
 
 /**
  * Returns a line-chart component from fetched data
@@ -16,20 +13,6 @@ import PropTypes from 'prop-types'
 
 
 export default function ChartAverageTime({donnees}) {
-
-  // const [dataAverage, setDataAverage] = useState([])
-  // const [loading,setLoading] = useState(false)
-
-  // useEffect(()=> {
-  //   async function getDataScore() {
-  //     setLoading(true)
-  //     let preData = await fetchSessionsData('12')
-  //     const formatedAverageData = new AverageTimeDataFormater(preData)
-  //     setDataAverage(formatedAverageData.dataAverage)    
-  //     setLoading(false)
-  //   }
-  //   getDataScore()
-  // }, [])
 
   return (
     <div id='averageTimeFullChart' style={{height:'100%',width:'100%'}}>
