@@ -29,18 +29,24 @@ export default function Profile() {
   const [proteinCount, setProteinCount] = useState('')
   const [carbohydrateCount, setCarbohydrateCount] = useState('')
   const [lipidCount, setLipidCount] = useState('')
+  const [dataScore, setDataScore] = useState([])
   const [loading, setLoading] = useState(false)
+
 
   useEffect(()=> {
     async function getDataScore() {
       setLoading(true)
-      let preData = await fetchMainData('18')
+      let preData = await fetchMainData('12')
       const formated = new MainDataFormater(preData)
       setUsName(formated.name)
       setCalorieCount(formated.calorie)
       setProteinCount(formated.protein)
       setCarbohydrateCount(formated.carbohydrate)
       setLipidCount(formated.lipid)
+      setDataScore(formated.dataScore)
+
+
+
       setLoading(false)
     }
     getDataScore()
@@ -67,7 +73,7 @@ export default function Profile() {
                     <ChartRadar />
                   </div>                  
                   <div id='scoreChart'>
-                    <Score />
+                    {dataScore[0] && (<Score donnees={dataScore}/>)}
                   </div>
                 </div>
               </div>

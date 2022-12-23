@@ -11,27 +11,9 @@ import MainDataFormater from '../../models/MainDataFormater';
  * @returns {import('react').ReactElement}
  */
 
-export default function Score() {
-
-  const [dataScore, setDataScore] = useState([])
-  const [loading, setLoading] = useState(false)
-
-  useEffect(()=> {
-    async function getDataScore() {
-      setLoading(true)
-      let preData = await fetchMainData('18')
-      const formatedScore = new MainDataFormater(preData)
-      setDataScore(formatedScore.dataScore)
-      setLoading(false)
-    }
-    getDataScore()
-  }, [])
+export default function Score({donnees}) {
 
   return (
-    <>
-    {loading && (
-    <div>spinner à insérer</div>)}
-    {dataScore[0] && (
     <div id='scoreContainer' >
       <ResponsiveContainer width="100%" height="100%">
         <RadialBarChart  
@@ -40,10 +22,9 @@ export default function Score() {
             barSize={10}
             startAngle={90}
             endAngle={450} 
-            data={dataScore}
+            data={donnees}
             style={{ background: "transparent"}}
-        >
-        
+        >        
           <PolarAngleAxis 
             type="number"
             domain={[0,100]}
@@ -62,12 +43,10 @@ export default function Score() {
       </ResponsiveContainer>
         <div id='scoreTitle'>Score</div>
         <div id="scoreSummary">
-          <div id='scorePct'>{dataScore[0].valeur}%</div>
+          <div id='scorePct'>{donnees[0].valeur}%</div>
           <div id='scoreText'>de votre <br/>objectif</div>
         </div>
     </div>
-    )}
-  </>
   )
 }
 
