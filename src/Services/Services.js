@@ -12,6 +12,7 @@ export const fetchMainData = async (userId) => {
         const userMainDatas = await fetch(`data/data.json`)
           .then((res) => res.json())
           .then((data) => data.USER_MAIN_DATA)
+        console.log('passage en "mock true" ')
         return (
           userMainDatas.filter((el) => el.id + '' === userId)[0]
         )
@@ -24,6 +25,7 @@ export const fetchMainData = async (userId) => {
         const userMainDatas = await fetch(`${process.env.REACT_APP_API_URL}/user/${userId}`)
           .then((res) => res.json())
           .then((data) => data)
+        console.log('passage en "mock false" ');
         return userMainDatas.data
       } catch (err) {
         console.log(err);

@@ -19,7 +19,7 @@ export default function ChartRadar() {
     useEffect(()=> {
         async function getPerfScore() {
             setLoading(true)
-            let preDat = await fetchPerformanceData('12')
+            let preDat = await fetchPerformanceData('18')
 
             const kindPerf = {
                 1: 'Cardio',

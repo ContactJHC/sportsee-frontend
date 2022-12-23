@@ -33,14 +33,12 @@ export default function Profile() {
   useEffect(()=> {
     async function getDataScore() {
       setLoading(true)
-      let preData = await fetchMainData('12')
-      console.log(preData.keyData.calorieCount);
+      let preData = await fetchMainData('18')
       setUsName(preData.userInfos.firstName)
       setCalorieCount(preData.keyData.calorieCount)
       setProteinCount(preData.keyData.proteinCount)
       setCarbohydrateCount(preData.keyData.carbohydrateCount)
       setLipidCount(preData.keyData.lipidCount)
-      console.log(usName);
       setLoading(false)
     }
     getDataScore()
@@ -53,7 +51,6 @@ export default function Profile() {
         </div>
         {loading && (
           <div>Spinner à insérer</div>)}
-  {usName && (console.log(usName,calorieCount,proteinCount,carbohydrateCount,lipidCount ))}
           <div id='chartsAndSummariesContainer'>
               <div id='chartsContainer'>
                 <div id='dailyActivityContainer'>
