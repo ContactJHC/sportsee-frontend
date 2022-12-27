@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
  * @param {array} donnees The fetched data including 'value' and 'kind'
  * @param {number} value The user's score in one performance kind
  * @param {string} kind The name in french language of the performance kind
- * @returns {import('react').ReactElement} -
+ * @returns {React.ReactElement} -
  */
 
 export default function ChartRadar({donnees}) {

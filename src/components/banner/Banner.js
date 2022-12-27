@@ -1,10 +1,11 @@
 import './Banner.css'
 import PropTypes from 'prop-types'
+import React from 'react'
 
 /**
  * Returns a name-personalized greeting banner component from a prop name
  * @param {string} userName 
- * @returns {import('react').ReactElement} -
+ * @returns {React.ReactElement} -
  */
 
 export default function Banner({userName}) {
