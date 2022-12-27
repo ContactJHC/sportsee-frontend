@@ -3,9 +3,12 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
 import PropTypes from 'prop-types'
 
 /**
- * Returns a bar-chart component from fetched data
- * @param {object} data 
- * @returns {import('react').ReactElement}
+ * Returns a bar-chart component from fetched data, giving a daily activity overview
+ * @param {array} donnees The fetched datas including 'day', 'kilogram' and 'calories'
+ * @param {string} day The session's given day
+ * @param {number} kilogram The user's weight on the given day
+ * @param {number} calories The amount of used calories on the given day
+ * @returns {import('react').ReactElement} -
  */
 
 export default function ChartDailyActivity({donnees}) {
@@ -38,11 +41,11 @@ export default function ChartDailyActivity({donnees}) {
 }
 
 ChartDailyActivity.propTypes = {
-  data: PropTypes.arrayOf(
+  donnees: PropTypes.arrayOf(
     PropTypes.shape({
-      day: PropTypes.string,
-      kilogram: PropTypes.number,
-      calories: PropTypes.number,
-    }),
-  ).isRequired,
+      day: PropTypes.string.isRequired,
+      kilogram: PropTypes.number.isRequired,
+      calories: PropTypes.number.isRequired
+    }).isRequired,
+  )
 }

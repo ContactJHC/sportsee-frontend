@@ -24,7 +24,7 @@ import PerformancesDataFormater from '../../models/PerformancesDataFormater'
 
 /**
  * Returns a single page component including a banner, 3 summaries and 4 charts
- * @returns {import('react').ReactElement}
+ * @returns {import('react').ReactElement} -
  */
 
 export default function Profile() {

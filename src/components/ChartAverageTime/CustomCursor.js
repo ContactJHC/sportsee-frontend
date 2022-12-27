@@ -3,11 +3,11 @@ import { Rectangle } from "recharts";
 import PropTypes from 'prop-types'
 
 /**
- * Returns a customized-cursor from a prop array
- * @param {object} prop 
- * @param {number} width
- * @param {array} points
- * @returns {import('react').ReactElement}
+ * Returns a customized-cursor from a prop object, being used as a red color dynamic background
+ * @param {object} prop Inherited prop from recharts 
+ * @param {number} width prop.width, the width of the container
+ * @param {array} points prop.points, the [x,y] position array of the hovering cursor
+ * @returns {import('react').ReactElement} -
  */
 
 export default function CustomCursor(prop) {

@@ -1,8 +1,8 @@
 let mock = process.env.REACT_APP_DEVELOPMENT
 
 /**
- * Returns user fetched datas from a call to the database
- * @returns {array} userMainDatas 
+ * Returns one's user filtered by ID fetched datas from a call to the database, according to different endpoints
+ * @returns {array} - 
  */
    
 

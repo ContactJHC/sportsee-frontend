@@ -4,13 +4,15 @@ import './Score.css'
 import PropTypes from 'prop-types'
 
 /**
- * Returns a radial-bar-chart component from fetched data
- * @param {array} data
- * @returns {import('react').ReactElement}
+ * Returns a radial-bar-chart component from fetched data, giving an overall percentage attainment of the user's goal
+ * @param {array} donnees The fetched data, including 'name' and 'valeur'
+ * @param {string} name The category name of the given value, in case of a Legend component use
+ * @param {number} valeur The percentage value of the user's attainment 
+ * @returns {import('react').ReactElement} -
  */
 
 export default function Score({donnees}) {
-
+  
   return (
     <div id='scoreContainer' >
       <ResponsiveContainer width="100%" height="100%">
@@ -48,7 +50,11 @@ export default function Score({donnees}) {
   )
 }
 
-// Score.propTypes = {
-//   data: PropTypes.object.isRequired,
-//   valeur: PropTypes.number.isRequired
-// }
+Score.propTypes = {
+  donnees: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+        valeur: PropTypes.number.isRequired,
+      }).isRequired,
+  )
+}

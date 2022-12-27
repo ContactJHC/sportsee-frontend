@@ -1,15 +1,14 @@
 import React, { PureComponent} from 'react';
-// import { fetchPerformanceData } from '../../Services/Services';
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 import './ChartRadar.css'
 import PropTypes from 'prop-types'
-// import PerformancesDataFormater from '../../models/PerformancesDataFormater';
 
 /**
- * Returns a radar-chart component from fetched data
- * @param {object} kindPerformance
- * @param {array} datas 
- * @returns {import('react').ReactElement}
+ * Returns a radar-chart component from fetched data, giving an user's performance overview
+ * @param {array} donnees The fetched data including 'value' and 'kind'
+ * @param {number} value The user's score in one performance kind
+ * @param {string} kind The name in french language of the performance kind
+ * @returns {import('react').ReactElement} -
  */
 
 export default function ChartRadar({donnees}) {
@@ -27,7 +26,10 @@ export default function ChartRadar({donnees}) {
 }
 
 ChartRadar.propTypes = {
-datas: PropTypes.shape({
-    perfScore: PropTypes.arrayOf(PropTypes.object).isRequired,
-})
+    donnees: PropTypes.arrayOf(
+        PropTypes.shape({
+          value: PropTypes.number.isRequired,
+          kind: PropTypes.string.isRequired,
+        }).isRequired,
+    )
 }

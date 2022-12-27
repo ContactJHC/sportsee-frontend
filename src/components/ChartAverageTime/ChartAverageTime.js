@@ -6,14 +6,16 @@ import CustomCursor from './CustomCursor'
 import PropTypes from 'prop-types'
 
 /**
- * Returns a line-chart component from fetched data
- * @param {array} data 
- * @returns {import('react').ReactElement}
+ * Returns a line-chart component from fetched data, giving an overview over the week trainings
+ * @param {array} donnees The fetched data including 'day' and 'sessionLength'
+ * @param {number} day -
+ * @param {number} sessionLength -
+ * @returns {import('react').ReactElement} -
  */
 
 
 export default function ChartAverageTime({donnees}) {
-
+  
   return (
     <div id='averageTimeFullChart' style={{height:'100%',width:'100%'}}>
       <p id='averageTimeTitle'>Durée moyenne des sessions</p>
@@ -54,7 +56,7 @@ export default function ChartAverageTime({donnees}) {
 }
 
 ChartAverageTime.propTypes = {
-  sessions: PropTypes.arrayOf(
+  donnees: PropTypes.arrayOf(
     PropTypes.shape({
       day: PropTypes.number.isRequired,
       sessionLength: PropTypes.number.isRequired,

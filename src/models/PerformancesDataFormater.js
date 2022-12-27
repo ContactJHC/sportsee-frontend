@@ -1,4 +1,7 @@
-
+/**
+ * Returns a formated array to be used from the 'fetchPerformanceData' returned data
+ * @returns {array} - 
+ */
 
 export default class PerformancesDataFormater {
     constructor(performances) {

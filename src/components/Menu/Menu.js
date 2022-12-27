@@ -4,8 +4,8 @@ import swimming from '../../assets/swimming.png'
 import biking from '../../assets/biking.png'
 import workout from '../../assets/workout.png'
 /**
- * Returns a header component including a nav bar
- * @returns {import('react').ReactElement}
+ * Returns a lateral menu component including 4 icons and a copyright license text
+ * @returns {import('react').ReactElement} -
  */
 
 

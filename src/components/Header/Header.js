@@ -3,7 +3,7 @@ import logo from '../../assets/logo.png'
 
 /**
  * Returns a header component including a nav bar
- * @returns {import('react').ReactElement}
+ * @returns {import('react').ReactElement} -
  */
 
 export default function Header() {
