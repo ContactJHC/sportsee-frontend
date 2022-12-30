@@ -91,6 +91,11 @@ p {
 }
 
 @media (max-width: 1280px) {
+
+    #mainContainer{
+        left: 140px;
+    }
+
     #dailyActivityContainer {
         width: 750px;
         margin: 20px auto;

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>pages/profile/Profile.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="module.html#.exports">exports</a></li><li></li><li></li><li></li></ul><h3>Global</h3><ul><li><a href="global.html#fetchMainData">fetchMainData</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">pages/profile/Profile.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState, useEffect } from 'react'
+import { fetchMainData, fetchSessionsData, fetchActivityData, fetchPerformanceData} from '../../Services/Services'
+
+import './Profile.css'
+
+import Banner from '../../components/Banner/Banner'
+import Summary from '../../components/Summary/Summary'
+import Spinner from '../../components/Spinner/Spinner'
+
+import iconCalories from '../../assets/calories-icon.png'
+import iconCarbs from '../../assets/carbs-icon.png'
+import iconProteins from '../../assets/protein-icon.png'
+import iconLipids from '../../assets/fat-icon.png'
+
+import ChartDailyActivity from '../../components/ChartDailyActivity/ChartDailyActivity'
+import ChartRadar from '../../components/ChartRadar/ChartRadar'
+import ChartAverageTime from '../../components/ChartAverageTime/ChartAverageTime'
+import Score from '../../components/ChartScore/Score'
+
+import MainDataFormater from '../../models/MainDataFormater'
+import AverageTimeDataFormater from '../../models/AverageTimeDataFormater'
+import ActivityDataFormater from '../../models/ActivityDataFormater'
+import PerformancesDataFormater from '../../models/PerformancesDataFormater'
+
+/**
+ * Returns a single page component including a banner, 3 summaries and 4 charts
+ * @returns {import('react').ReactElement} -
+ */
+
+export default function Profile() {
+
+  let userId = '18'
+  var url = new URL(window.location.href)
+  // example : 'http://localhost:3001/?id=12'
+  if(url.searchParams.get("id")) {
+    userId = url.searchParams.get("id")
+  }
+
+  const [loading, setLoading] = useState(false)
+
+  const [usName, setUsName] = useState('')
+  const [calorieCount, setCalorieCount] = useState('')
+  const [proteinCount, setProteinCount] = useState('')
+  const [carbohydrateCount, setCarbohydrateCount] = useState('')
+  const [lipidCount, setLipidCount] = useState('')
+  const [dataScore, setDataScore] = useState([])
+
+  const [dataAverage, setDataAverage] = useState([])
+  
+  const [dataDaily, setDataDaily] = useState([])
+
+  const [perfScore, setPerfScore] = useState([])
+
+  useEffect(()=> {
+    async function getData() {
+      setLoading(true)
+
+      let mainData = await fetchMainData(userId)
+      let formatedMainData = new MainDataFormater(mainData)
+      setUsName(formatedMainData.name)
+      setCalorieCount(formatedMainData.calorie)
+      setProteinCount(formatedMainData.protein)
+      setCarbohydrateCount(formatedMainData.carbohydrate)
+      setLipidCount(formatedMainData.lipid)
+      setDataScore(formatedMainData.dataScore)
+
+      let sessionsData = await fetchSessionsData(userId)
+      let formatedSessionsData = new AverageTimeDataFormater(sessionsData)
+      setDataAverage(formatedSessionsData.dataAverage)
+
+      let activityData = await fetchActivityData(userId)
+      let formatedActivityData = new ActivityDataFormater(activityData)
+      setDataDaily(formatedActivityData.dataActivity)
+
+      let performanceData = await fetchPerformanceData(userId)
+      let formatedPerformanceData = new PerformancesDataFormater(performanceData.data)
+      setPerfScore(formatedPerformanceData.perfScore)
+
+      setLoading(false)
+    }
+    getData()
+  }, [])
+  
+  return (
+    &lt;div id='mainContainer'>
+        &lt;div id='bannerContainer'>
+            {usName &amp;&amp; (&lt;Banner userName={usName}/>)}
+        &lt;/div>
+        {loading &amp;&amp; (&lt;Spinner />)}
+        &lt;div id='chartsAndSummariesContainer'>
+            &lt;div id='chartsContainer'>
+              &lt;div id='dailyActivityContainer'>
+                &lt;div id='dailyActivityTitle'>Activité quotidienne&lt;/div>
+                {dataDaily[1] &amp;&amp; (&lt;ChartDailyActivity donnees={dataDaily}/>)}
+              &lt;/div>
+              &lt;div id='averageAndRadarAndScoreContainer'>
+                &lt;div id='averageChart'>
+                {dataAverage[1] &amp;&amp; (&lt;ChartAverageTime donnees={dataAverage} />)}
+                &lt;/div>
+                &lt;div id='radarChart'>
+                {perfScore[1] &amp;&amp; (&lt;ChartRadar donnees={perfScore}/>)}
+                &lt;/div>                  
+                &lt;div id='scoreChart'>
+                  {dataScore[0] &amp;&amp; (&lt;Score donnees={dataScore}/>)}
+                &lt;/div>
+              &lt;/div>
+            &lt;/div>
+            &lt;div id='summariesContainer'>
+              {calorieCount &amp;&amp; (&lt;Summary name='Calories' number={calorieCount} icon={iconCalories}/>)}
+              {proteinCount &amp;&amp; (&lt;Summary name='Protéines' number={proteinCount} icon={iconProteins}/>)}
+              {carbohydrateCount &amp;&amp; (&lt;Summary name='Glucides' number={carbohydrateCount} icon={iconCarbs}/>)}
+              {lipidCount &amp;&amp; (&lt;Summary name='Lipides' number={lipidCount} icon={iconLipids}/>)}
+            &lt;/div>
+        &lt;/div>
+    &lt;/div>
+  )
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.0</a> on Fri Dec 30 2022 17:06:03 GMT+0100 (heure normale d’Europe centrale) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

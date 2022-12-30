@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
  * @param {array} donnees The fetched data including 'day' and 'sessionLength'
  * @param {number} day -
  * @param {number} sessionLength -
- * @returns {import('react').ReactElement} -
+ * @returns {React.ReactElement} -
  */
 
 

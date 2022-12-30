@@ -4,7 +4,7 @@ import React from 'react'
 
 /**
  * Returns a name-personalized greeting banner component from a prop name
- * @param {string} userName 
+ * @param {string} userName -
  * @returns {React.ReactElement} -
  */
 

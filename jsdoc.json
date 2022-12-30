@@ -1,0 +1,20 @@
+{
+    "tags": {
+        "allowUnknownTags": true,
+        "dictionaries": ["jsdoc", "closure"]
+    },
+    "source": {
+        "include": ["src"],
+        "includePattern": ".+\\.js(doc|x)?$",
+        // "includePattern" : "ChartAverageTime.js",
+        "excludePattern": "(^|\\/|\\\\)_"
+    },
+    "opts": {
+        "destination": "docs",
+        "recurse": true,
+        "verbose": true,
+        "encoding":"utf8",
+        "readme": "README.md",
+        "template": "node_modules/docdash"
+    }
+}
