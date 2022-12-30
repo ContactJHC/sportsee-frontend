@@ -29,9 +29,9 @@ yarn
 
 ## Deployment
 
-First, launch the backend on port 3000 by typing :
+First, in the back-end directory launch the backend on port 3000 by typing :
 ```
-yarn 
+yarn dev
 ```
 Then, in the front-end directory, launch the frontend on port 3001 by typing : 
 ```
