@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
  * @param {object} prop Inherited prop from recharts 
  * @param {number} width prop.width, the width of the container
  * @param {array} points prop.points, the [x,y] position array of the hovering cursor
- * @returns {import('react').ReactElement} -
+ * @returns {React.ReactElement} -
  */
 
 export default function CustomCursor(prop) {

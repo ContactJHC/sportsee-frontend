@@ -1,9 +1,10 @@
 import './Header.css'
 import logo from '../../assets/logo.png'
+import React from 'react'
 
 /**
  * Returns a header component including a nav bar
- * @returns {import('react').ReactElement} -
+ * @returns {React.ReactElement} -
  */
 
 export default function Header() {

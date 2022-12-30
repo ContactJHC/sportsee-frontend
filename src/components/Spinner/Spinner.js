@@ -1,8 +1,9 @@
 import './Spinner.css'
+import React from 'react'
 
 /**
  * Returns a spinner component including two rings
- * @returns {import('react').ReactElement} - 
+ * @returns {React.ReactElement} - 
  */
 
 export default function Spinner() {

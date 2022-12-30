@@ -6,7 +6,6 @@
     "source": {
         "include": ["src"],
         "includePattern": ".+\\.js(doc|x)?$",
-        // "includePattern" : "ChartAverageTime.js",
         "excludePattern": "(^|\\/|\\\\)_"
     },
     "opts": {

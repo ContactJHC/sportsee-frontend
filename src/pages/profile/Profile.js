@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import React from 'react'
 import { fetchMainData, fetchSessionsData, fetchActivityData, fetchPerformanceData} from '../../Services/Services'
 
 import './Profile.css'
@@ -24,7 +25,7 @@ import PerformancesDataFormater from '../../models/PerformancesDataFormater'
 
 /**
  * Returns a single page component including a banner, 3 summaries and 4 charts
- * @returns {import('react').ReactElement} -
+ * @returns {React.ReactElement} -
  */
 
 export default function Profile() {

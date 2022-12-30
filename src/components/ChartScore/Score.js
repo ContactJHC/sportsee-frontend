@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
  * @param {array} donnees The fetched data, including 'name' and 'valeur'
  * @param {string} name The category name of the given value, in case of a Legend component use
  * @param {number} valeur The percentage value of the user's attainment 
- * @returns {import('react').ReactElement} -
+ * @returns {React.ReactElement} -
  */
 
 export default function Score({donnees}) {

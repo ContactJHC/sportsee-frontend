@@ -3,9 +3,10 @@ import meditation from '../../assets/meditation.png'
 import swimming from '../../assets/swimming.png'
 import biking from '../../assets/biking.png'
 import workout from '../../assets/workout.png'
+import React from 'react'
 /**
  * Returns a lateral menu component including 4 icons and a copyright license text
- * @returns {import('react').ReactElement} -
+ * @returns {React.ReactElement} -
  */
 
 

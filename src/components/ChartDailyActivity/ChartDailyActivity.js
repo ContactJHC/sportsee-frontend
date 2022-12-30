@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
  * @param {string} day The session's given day
  * @param {number} kilogram The user's weight on the given day
  * @param {number} calories The amount of used calories on the given day
- * @returns {import('react').ReactElement} -
+ * @returns {React.ReactElement} -
  */
 
 export default function ChartDailyActivity({donnees}) {
