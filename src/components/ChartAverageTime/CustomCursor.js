@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
  * @returns {React.ReactElement} -
  */
 
-export default function CustomCursor(prop) {
+function CustomCursor(prop) {
     const { width, points } = prop;
     const X = points[0].x;
     const Y = points[0].y;
@@ -37,3 +37,5 @@ CustomCursor.propTypes = {
       ).isRequired,
     }),
   };
+
+export default CustomCursor

@@ -28,7 +28,7 @@ import PerformancesDataFormater from '../../models/PerformancesDataFormater'
  * @returns {React.ReactElement} -
  */
 
-export default function Profile() {
+function Profile() {
 
   let userId = '18'
   var url = new URL(window.location.href)
@@ -116,3 +116,5 @@ export default function Profile() {
     </div>
   )
 }
+
+export default Profile

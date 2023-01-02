@@ -14,7 +14,7 @@ import PropTypes from 'prop-types'
  */
 
 
-export default function ChartAverageTime({donnees}) {
+function ChartAverageTime({donnees}) {
   
   return (
     <div id='averageTimeFullChart' style={{height:'100%',width:'100%'}}>
@@ -63,3 +63,5 @@ ChartAverageTime.propTypes = {
     }).isRequired,
   )
 }
+
+export default ChartAverageTime

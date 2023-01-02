@@ -8,7 +8,7 @@ import PropTypes from 'prop-types'
  * @param {array} payload The source data of the content to be displayed in the tooltip
  * @returns {React.ReactElement} -
  */
-export default function CustomToolTip({active, payload }) {
+function CustomToolTip({active, payload }) {
 if (active && payload && payload.length) {
   console.log(payload);
   return (
@@ -28,3 +28,5 @@ CustomToolTip.propTypes = {
   active: PropTypes.bool,
   payload: PropTypes.arrayOf(PropTypes.any),
 }
+
+export default CustomToolTip

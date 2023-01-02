@@ -6,7 +6,7 @@ import React from 'react'
  * @returns {React.ReactElement} - 
  */
 
-export default function Spinner() {
+function Spinner() {
   return (
     <div class="overlay">
         <div class="loading">
@@ -16,3 +16,5 @@ export default function Spinner() {
     </div>
   )
 }
+
+export default Spinner

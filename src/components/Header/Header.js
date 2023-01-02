@@ -7,7 +7,7 @@ import React from 'react'
  * @returns {React.ReactElement} -
  */
 
-export default function Header() {
+function Header() {
   return (
     <header>
         <div id='logo' className='navOption'>
@@ -24,3 +24,5 @@ export default function Header() {
     </header>
   )
 }
+
+export default Header

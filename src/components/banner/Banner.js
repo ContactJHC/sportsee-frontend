@@ -8,7 +8,7 @@ import React from 'react'
  * @returns {React.ReactElement} -
  */
 
-export default function Banner({userName}) {
+function Banner({userName}) {
   return (
     <>
         <div id='greeting'>
@@ -28,3 +28,5 @@ export default function Banner({userName}) {
 Banner.propTypes = {
     userName: PropTypes.string.isRequired
 }
+
+export default Banner

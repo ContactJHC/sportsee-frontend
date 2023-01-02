@@ -11,7 +11,7 @@ import PropTypes from 'prop-types'
  * @returns {React.ReactElement} -
  */
 
-export default function Score({donnees}) {
+function Score({donnees}) {
   
   return (
     <div id='scoreContainer' >
@@ -58,3 +58,5 @@ Score.propTypes = {
       }).isRequired,
   )
 }
+
+export default Score

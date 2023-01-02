@@ -11,7 +11,7 @@ import React from 'react'
  * @returns {React.ReactElement}
  */
 
-export default function Summary({name, number, icon}) {
+function Summary({name, number, icon}) {
 
   return (
     <div className='categoryContainer'>
@@ -37,3 +37,5 @@ Summary.propTypes = {
   number: PropTypes.number.isRequired,
   icon: PropTypes.string.isRequired
 }
+
+export default Summary

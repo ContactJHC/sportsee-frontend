@@ -10,7 +10,7 @@ import React from 'react'
  */
 
 
-export default function Menu() {
+function Menu() {
   return (
     <div id='lateralMenu'>
         <div id='lateralIcons'>
@@ -25,3 +25,5 @@ export default function Menu() {
     </div>
   )
 }
+
+export default Menu

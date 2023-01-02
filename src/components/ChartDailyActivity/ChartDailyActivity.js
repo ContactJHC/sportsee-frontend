@@ -11,7 +11,7 @@ import PropTypes from 'prop-types'
  * @returns {React.ReactElement} -
  */
 
-export default function ChartDailyActivity({donnees}) {
+function ChartDailyActivity({donnees}) {
   
   return (
     <ResponsiveContainer width="100%" height="100%">
@@ -49,3 +49,5 @@ ChartDailyActivity.propTypes = {
     }).isRequired,
   )
 }
+
+export default ChartDailyActivity

@@ -3,10 +3,10 @@ let mock = process.env.REACT_APP_DEVELOPMENT
 /**
  * Returns one's user filtered by ID fetched datas from a call to the database, according to different endpoints
  * @returns {array} - 
- */
+*/
    
 
-export const fetchMainData = async (userId) => {
+const fetchMainData = async (userId) => {
     if (mock) {
       try {
         const userMainDatas = await fetch(`data/data.json`)
@@ -34,7 +34,7 @@ export const fetchMainData = async (userId) => {
     }
   }
 
-  export const fetchActivityData = async (usId) => {
+const fetchActivityData = async (usId) => {
     if (mock) {
       try {
         const userActivityData = await fetch(`data/data.json`)
@@ -58,7 +58,7 @@ export const fetchMainData = async (userId) => {
     }
   }
 
-  export const fetchSessionsData = async (usId) => {
+const fetchSessionsData = async (usId) => {
     if (mock) {
       try {
         const userSessionData = await fetch(`data/data.json`)
@@ -82,7 +82,7 @@ export const fetchMainData = async (userId) => {
     }
   }
    
-  export const fetchPerformanceData = async (usId) => {
+const fetchPerformanceData = async (usId) => {
     if (mock) {
       try {
         const userPerformanceData = await fetch(`data/data.json`)
@@ -107,4 +107,5 @@ export const fetchMainData = async (userId) => {
       }
     }
   }
-    
+  
+export {fetchMainData, fetchActivityData, fetchSessionsData, fetchPerformanceData}

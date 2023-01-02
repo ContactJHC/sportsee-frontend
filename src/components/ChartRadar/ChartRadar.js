@@ -11,7 +11,7 @@ import PropTypes from 'prop-types'
  * @returns {React.ReactElement} -
  */
 
-export default function ChartRadar({donnees}) {
+function ChartRadar({donnees}) {
     
     return (
         <ResponsiveContainer width="100%" height="70%">
@@ -33,3 +33,5 @@ ChartRadar.propTypes = {
         }).isRequired,
     )
 }
+
+export default ChartRadar
