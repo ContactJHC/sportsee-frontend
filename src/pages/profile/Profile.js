@@ -38,6 +38,7 @@ function Profile() {
   }
 
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(false)
 
   const [usName, setUsName] = useState('')
   const [calorieCount, setCalorieCount] = useState('')
@@ -57,6 +58,10 @@ function Profile() {
       setLoading(true)
 
       let mainData = await fetchMainData(userId)
+      if (mainData === undefined) {
+        setError(true)
+        setLoading(false)
+      }
       let formatedMainData = new MainDataFormater(mainData)
       setUsName(formatedMainData.name)
       setCalorieCount(formatedMainData.calorie)
@@ -87,7 +92,9 @@ function Profile() {
         <div id='bannerContainer'>
             {usName && (<Banner userName={usName}/>)}
         </div>
+        {error && (<div>Impossible d'accéder aux données du réseau, veuillez essayer de recharger la page ultérieurement.</div>)}
         {loading && (<Spinner />)}
+        {!error && (
         <div id='chartsAndSummariesContainer'>
             <div id='chartsContainer'>
               <div id='dailyActivityContainer'>
@@ -112,7 +119,7 @@ function Profile() {
               {carbohydrateCount && (<Summary name='Glucides' number={carbohydrateCount} icon={iconCarbs}/>)}
               {lipidCount && (<Summary name='Lipides' number={lipidCount} icon={iconLipids}/>)}
             </div>
-        </div>
+        </div>)}
     </div>
   )
 }

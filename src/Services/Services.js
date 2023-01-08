@@ -18,7 +18,7 @@ const fetchMainData = async (userId) => {
         )
       } catch (err) {
         console.log(err);
-        return null
+        return err
       }
     } else {
       try {
@@ -28,8 +28,8 @@ const fetchMainData = async (userId) => {
         console.log('passage en "mock false" ');
         return userMainDatas.data
       } catch (err) {
-        console.log(err);
-        return null
+        console.log(err, 'on est bien passé là');
+        return
       }
     }
   }
